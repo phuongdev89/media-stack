@@ -104,7 +104,6 @@ services:
     profiles: ["plex"]
     image: linuxserver/plex:latest
     container_name: plex
-    network_mode: host
     networks:
       - mynetwork
     environment:
@@ -117,6 +116,10 @@ services:
       - 32400:32400
       - 32469:32469
       - 1900:1900/udp
+      - 3005:3005
+      - 5353:5353/udp
+      - 8324:8324
+      - 32410-32414:32410-32414/udp
     volumes:
       - plex-config:/config
       - /mnt/e/Downloads/tvshows:/tv
